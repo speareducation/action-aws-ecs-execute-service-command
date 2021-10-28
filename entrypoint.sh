@@ -17,6 +17,7 @@ AWS_REGION=${INPUT_AWS_REGION}
 ECS_TASK=$(aws --profile="${AWS_PROFILE}" ecs list-tasks --cluster "${INPUT_CLUSTER}" --service="${INPUT_SERVICE}" | jq -r '.taskArns[]' | head -n 1)
 
 RESULT=$(aws ecs execute-command \
+  --interactive \
   --cluster ${INPUT_CLUSTER} \
   --task ${ECS_TASK} \
   --command "${INPUT_COMMAND}")
