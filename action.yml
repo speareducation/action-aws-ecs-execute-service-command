@@ -1,0 +1,29 @@
+---
+name: AWS ECS Execute Service Command
+description: Locates the most recent container with state RUNNING and runs the specified command
+inputs:
+  aws_access_key_id:
+    description: AWS Access Key ID
+    required: true
+  aws_secret_access_key:
+    description: AWS Secret access key
+    required: true
+  aws_region:
+    description: AWS Region
+    required: true
+  cluster:
+    description: The name of the cluster to use
+    required: true
+  service:
+    description: The name of the service
+    required: true
+  command:
+    description: The command to run
+    required: true
+outputs:
+  result:
+    description: The resulting output of the command
+runs:
+  using: docker
+  image: Dockerfile
+  
