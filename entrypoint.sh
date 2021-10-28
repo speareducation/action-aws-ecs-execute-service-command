@@ -18,7 +18,6 @@ ECS_TASK=$(aws --profile="${AWS_PROFILE}" ecs list-tasks --cluster "${INPUT_CLUS
 
 RESULT=$(aws ecs execute-command \
   --cluster ${INPUT_CLUSTER} \
-  --non-interactive \
   --task ${ECS_TASK} \
   --command "${INPUT_COMMAND}")
 
