@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "Waiting for container to be available..."
+sleep 30
+
 # INPUTS
 
 # INPUT_AWS_ACCESS_KEY_ID
@@ -22,4 +25,8 @@ RESULT=$(aws ecs execute-command \
   --task ${ECS_TASK} \
   --command "${INPUT_COMMAND}")
 
+RESULT_CODE=$?
+
 echo "::set-output name=result::${RESULT}"
+
+exit ${RESULT_CODE}
