@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-echo "Waiting for container to be available..."
-sleep 30
-
 # INPUTS
 
 # INPUT_AWS_ACCESS_KEY_ID
