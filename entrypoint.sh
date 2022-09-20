@@ -27,4 +27,8 @@ RESULT=$(aws \
   --task ${ECS_TASK} \
   --command "${INPUT_COMMAND}")
 
+RESULT_CODE=$?
+
 echo "::set-output name=result::${RESULT}"
+
+exit ${RESULT_CODE}
