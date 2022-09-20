@@ -13,7 +13,7 @@ AWS_REGION=${INPUT_AWS_REGION}
 # INPUT_CLUSTER
 
 # fetch the most recent task
-
+set -x
 ECS_TASK=$(aws \
   --region="${AWS_REGION}" \
   ecs list-tasks \
@@ -24,7 +24,7 @@ RESULT=$(aws \
   --region="${AWS_REGION}" \
   ecs execute-command \
   --interactive \
-  --cluster ${INPUT_CLUSTER} \
+  --cluster "${INPUT_CLUSTER}" \
   --task ${ECS_TASK} \
   --command "${INPUT_COMMAND}")
 
