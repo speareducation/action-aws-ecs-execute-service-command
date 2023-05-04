@@ -23,6 +23,7 @@ RESULT=$(aws \
   --region="${AWS_REGION}" \
   ecs execute-command \
   --interactive \
+  --color no \
   --cluster "${INPUT_CLUSTER}" \
   --task ${ECS_TASK} \
   --command "${INPUT_COMMAND}")
