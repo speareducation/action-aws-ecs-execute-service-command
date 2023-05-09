@@ -19,7 +19,7 @@ ECS_TASK=$(aws \
   --cluster "${INPUT_CLUSTER}" \
   --service="${INPUT_SERVICE}" | jq -r '.taskArns[]' | head -n 1)
 
-UNBUFFER_COMMAND=$(/usr/bin/which unbuffer) RESULT=$(${UNBUFFER_COMMAND} aws \
+UNBUFFER_COMMAND=$(which unbuffer) RESULT=$(${UNBUFFER_COMMAND} aws \
   --region="${AWS_REGION}" \
   ecs execute-command \
   --interactive \
