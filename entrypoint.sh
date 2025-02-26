@@ -30,6 +30,6 @@ UNBUFFER_COMMAND=$(which unbuffer) RESULT=$(${UNBUFFER_COMMAND} aws \
 
 RESULT_CODE=$?
 
-echo "result=${RESULT}" >> ${GITHUB_OUTPUT}
+echo "result=${RESULT}" >> $GITHUB_OUTPUT
 
 exit ${RESULT_CODE}
